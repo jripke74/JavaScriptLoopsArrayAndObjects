@@ -1,32 +1,20 @@
-var randomNumber = getRandomNumber(10);
-var guess;
-var guessCount = 0;
-//var attempts = 0;
-var correctGuess = false;
+var html = '';
+var red;
+var green;
+var blue;
+var rgbColor;
 
-function getRandomNumber(upper) {
-  var num = Math.floor(Math.random() * upper) + 1;
+function getRandomNumber() {
+  var num = Math.floor(Math.random() * 256);
   return num;
 }
 
-// while (guess !== randomNumber) {
-//   guess = getRandomNumber(upper);
-//   attempts += 1;
-// }
-// document.write("<p>The random number was: " + randomNumber + "</p>");
-// document.write("<p>It took the computer " + attempts + " attempts to get it right.</p>");
+for (var i = 1; i <= 100; i += 1) {
+  red = getRandomNumber();
+  green = getRandomNumber();
+  blue = getRandomNumber();
+  rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  html += '<div style="background-color:' + rgbColor + '"></div>';
+}
 
-while (guessCount < 2) {
-  guess = prompt('I am thinking of a number between 1 and 10. What is it?');
-  guessCount += 1;
-  if (parseInt(guess) === randomNumber) {
-    correctGuess = true;
-    break;
-  }
-}
-if (correctGuess) {
-  document.write('<h1>You guessed the number!</h1>');
-  document.write('<p>It took you ' + guessCount + ' tries to guess the number ' + randomNumber);
-} else {
-  document.write('<h1>Sorry. You did not guess the number.</h1>');
-}
+document.write(html);
