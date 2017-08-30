@@ -1,20 +1,25 @@
 var html = '';
-var red;
-var green;
-var blue;
 var rgbColor;
 
-function getRandomNumber() {
-  var num = Math.floor(Math.random() * 256);
-  return num;
+function randomRGB() {
+  return Math.floor(Math.random() * 256);
 }
 
-for (var i = 1; i <= 100; i += 1) {
-  red = getRandomNumber();
-  green = getRandomNumber();
-  blue = getRandomNumber();
-  rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+function randomColor() {
+  var color = 'rgb(';
+  color += randomRGB() + ',';
+  color += randomRGB() + ',';
+  color += randomRGB() + ')';
+  return color;
+}
+
+function print(message) {
+  document.write(message);
+}
+
+for (var i = 0; i < 100; i += 1) {
+  rgbColor = randomColor();
   html += '<div style="background-color:' + rgbColor + '"></div>';
 }
 
-document.write(html);
+print(html);
