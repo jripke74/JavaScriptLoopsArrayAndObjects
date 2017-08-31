@@ -1,39 +1,23 @@
-var  inStock = [
-  'apples',
-  'eggs',
-  'milk',
-  'cookies',
-  'cheese',
-  'bread',
-  'lettuce',
-  'carrot',
-  'brocoli',
-  'pizza',
-  'potato',
-  'crackers',
-  'onion',
-  'tofu',
-  'frozen dinner',
-  'cocumber'
+var playList = [
+  ['I Did It My Way', 'Frank Sinatra'],
+  ['Respect', 'Aretha Franklin'],
+  ['Imagine', 'John Lennon'],
+  ['Born to Run', 'Bruce Springsteen'],
+  ['Louie Louie', 'The Kingsmen'],
+  ['Maybeline', 'Chuck Berry']
 ];
-var search;
 
+// print(message) function is used to send HTML to the browser
 function print(message) {
-  document.write('<p>' + message + '</p>');
+  document.write(message);
 }
 
-while (true) {
-  search = prompt("Search for a product in our store. Type 'list' to show all of the produce and 'quit' to exit");
-  search = search.toLowerCase();
-  if (search === 'quit') {
-    break;
-  } else if (search === 'list') {
-    print(inStock.join(', '));
-  } else {
-    if (inStock.indexOf(search) > -1) {
-      print('Yes, we have ' + search + ' in the store.');
-    } else {
-      print(search + ' is not in stock.');
-    }
+function printSong(songs) {
+  var listHTML = '<ol>';
+  for (var i = 0; i < songs.length; i++) {
+    listHTML += '<li>' + songs[i][0] + songs[i][1] + '</li>';
   }
+  listHTML += '</ol>';
+  print(listHTML);
 }
+printSong(playList);
