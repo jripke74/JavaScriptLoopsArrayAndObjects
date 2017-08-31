@@ -1,33 +1,39 @@
-var shopping = [
-  'carrots',
+var  inStock = [
+  'apples',
+  'eggs',
   'milk',
-  'eggs'
+  'cookies',
+  'cheese',
+  'bread',
+  'lettuce',
+  'carrot',
+  'brocoli',
+  'pizza',
+  'potato',
+  'crackers',
+  'onion',
+  'tofu',
+  'frozen dinner',
+  'cocumber'
 ];
-console.log(shopping[0]);
-console.log(shopping[1]);
-console.log(shopping[2]);
-// this will respond with undefined because it does not exist in the array
-console.log(shopping[3]);
-
-var playList = [];
-// push adds item to end of array
-playList.push('I did it my way');
-playList.push('Respect');
-// unshift adds item to beginning of array
-playList.unshift('Louie Louie');
-playList.unshift('Maybeline');
-playList.unshift('Born to Run');
+var search;
 
 function print(message) {
-  document.write(message);
+  document.write('<p>' + message + '</p>');
 }
 
-function printList(list) {
-  var listHTML = '<ol>';
-  for (var i = 0; i < list.length; i++) {
-    listHTML += '<li>' + list[i] + '</li>';
+while (true) {
+  search = prompt("Search for a product in our store. Type 'list' to show all of the produce and 'quit' to exit");
+  search = search.toLowerCase();
+  if (search === 'quit') {
+    break;
+  } else if (search === 'list') {
+    print(inStock.join(', '));
+  } else {
+    if (inStock.indexOf(search) > -1) {
+      print('Yes, we have ' + search + ' in the store.');
+    } else {
+      print(search + ' is not in stock.');
+    }
   }
-  listHTML += '</ol>';
-  print(listHTML);
 }
-printList(playList);
