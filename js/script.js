@@ -5,20 +5,34 @@ var students = [
   { name: 'Matthew', track: 'iOS', achievements: 3, points: 2433 },
   { name: 'David', track: 'iOS', achievements: 3, points: 2544 }
 ];
-var html = '';
 var student;
+var studentSearch;
+var message = '';
 
 function print(message) {
   var outputDiv = document.getElementById('output');
   outputDiv.innerHTML = message;
 }
 
-for (var i = 0; i < students.length; i++) {
-  student = students[i];
-  html += '<h1>Student: ' + student.name + '</h1>'
-  html += '<p>Track: ' + student.track + '</p>'
-  html += '<p>Points: ' + student.achievements + '</p>'
-  html += '<p>Achievements: ' + student.points + '</p>'
+function getStudentReport(student) {
+  var report = '<h1>Student: ' + student.name + '</h1>';
+  report += '<p>Track: ' + student.track + '</p>';
+  report += '<p>Points: ' + student.achievements + '</p>';
+  report += '<p>Achievements: ' + student.points + '</p>';
+  return report;
 }
 
-print(html);
+while (true) {
+  studentSearch = prompt('Search student records: type a name [Jody] (or type "quit" to end)');
+  if (studentSearch === null || studentSearch.toLowerCase() === 'quit') {
+    break;
+  }
+  for (var i = 0; i < students.length; i++) {
+    student = students[i];
+    if (student.name === studentSearch) {
+      message = getStudentReport(student);
+      print(message);
+    }
+
+  }
+}
