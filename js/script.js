@@ -5,3 +5,18 @@ var students = [
   { name: 'Matthew', track: 'iOS', achievements: 3, points: 2433 },
   { name: 'David', track: 'iOS', achievements: 3, points: 2544 }
 ];
+var html;
+
+function print(message) {
+  var outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = message;
+}
+
+for (var i = 0; i < students.length; i++) {
+  html += '<h1>Student: ' + students[i].name + '</h1>'
+  html += '<p>Track: ' + students[i].track + '</p>'
+  html += '<p>Points: ' + students[i].achievements + '</p>'
+  html += '<p>Achievements: ' + students[i].points + '</p>'
+}
+
+print(html);
